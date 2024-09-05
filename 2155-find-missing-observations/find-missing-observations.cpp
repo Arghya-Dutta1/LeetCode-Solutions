@@ -4,7 +4,10 @@ public:
         int m=rolls.size();
         int s=accumulate(rolls.begin(), rolls.end(), 0);
         int ns=mean*(n+m)-s;
+
+        //base case
         if(ns<0 || ns<n) return {};
+
         vector<int> ans(n, 1);
         ns-=n;
         for(int i=0;i<n && ns!=0;i++){
@@ -17,7 +20,10 @@ public:
                 ns=0;
             }
         }
+
+        //if no such array exists
         if(ns!=0) return {};
+        
         return ans;
     }
 };
