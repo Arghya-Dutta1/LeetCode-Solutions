@@ -1,13 +1,12 @@
 class Solution {
 public:
     vector<int> getMaximumXor(vector<int>& nums, int mB) {
-        int xors=0, mb=(1<<mB)-1;
-        vector<int> ans;
-        for(auto i:nums){
-            xors^=i;
-            ans.push_back(xors^mb);
+        int n=nums.size(), xors=0, mb=(1<<mB)-1;
+        vector<int> ans(n);
+        for(int i=0;i<n;i++){
+            xors^=nums[i];
+            ans[n-i-1]=xors^mb;
         }
-        reverse(ans.begin(), ans.end());
         return ans;
     }
 };
