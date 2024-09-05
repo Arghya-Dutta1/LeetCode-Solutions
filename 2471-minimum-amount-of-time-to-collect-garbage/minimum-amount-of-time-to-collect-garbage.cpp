@@ -11,7 +11,6 @@ public:
             if(Mi==-1 && garb[i].find('M')!=string::npos)
                 Mi=i;
             l+=garb[i].size();
-
         }
         vector<int> pre(n,0);
         for(int i=1;i<n;i++)
@@ -23,3 +22,10 @@ public:
         return ans+l;
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
