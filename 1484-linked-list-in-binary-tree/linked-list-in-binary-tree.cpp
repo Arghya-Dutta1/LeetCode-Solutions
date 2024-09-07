@@ -31,3 +31,10 @@ public:
         return dfs(head, root) || isSubPath(head, root->left) || isSubPath(head, root->right);
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
