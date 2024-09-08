@@ -21,19 +21,10 @@ public:
         int n=len/k, m=len%k, c=0, i=0;
         dummy=head;
         d2=head;
-        if(n==0){
-            while(dummy){
-                ans[i++]=d2;
-                d2=dummy->next;
-                dummy->next=NULL;
-                dummy=d2;
-            }
-            return ans;
-        }
         while(dummy){
             c++;
-            if(c==n){
-                if(m){
+            if(c==n || n==0){
+                if(m && n!=0){
                     dummy=dummy->next;
                     m--;
                 }
