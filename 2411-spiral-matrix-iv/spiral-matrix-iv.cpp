@@ -25,13 +25,11 @@ public:
                 rs--;
                 di=(di+1)%4;
                 c=0;
-                cout<<i<<" "<<j<<endl;
             }
             if(c==cs && abs(dc[di])){
                 cs--;
                 di=(di+1)%4;
                 c=0;
-                cout<<i<<" "<<j<<endl;
             }
             i+=dr[di];
             j+=dc[di];
@@ -39,3 +37,10 @@ public:
         return ans;
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
