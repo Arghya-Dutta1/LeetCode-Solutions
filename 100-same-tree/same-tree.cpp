@@ -13,8 +13,29 @@ class Solution {
 public:
     bool isSameTree(TreeNode* r1, TreeNode* r2) {
         if(!r1 && !r2) return true;
-        if(!r1 || !r2 || r1->val!=r2->val) return false;
-        return isSameTree(r1->left, r2->left) && isSameTree(r1->right, r2->right);
+        if(!r1 || !r2) return false;
+        queue<TreeNode*> q1, q2;
+        q1.push(r1);
+        q2.push(r2);
+
+        while(!q1.empty() && !q2.empty()){
+            TreeNode *n1, *n2;
+            n1=q1.front(); q1.pop();
+            n2=q2.front(); q2.pop();
+
+            if(n1->val!=n2->val) return false;
+
+            if(n1->left && n2->left){
+                q1.push(n1->left);
+                q2.push(n2->left);
+            }else if(n1->left || n2->left) return false;
+
+            if(n1->right && n2->right){
+                q1.push(n1->right);
+                q2.push(n2->right);
+            }else if(n1->right || n2->right) return false;
+        }
+        return true;
     }
 };
 
