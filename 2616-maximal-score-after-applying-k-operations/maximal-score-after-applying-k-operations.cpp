@@ -8,7 +8,6 @@ public:
             int v=pq.top();
             pq.pop();
             score+=v;
-            cout<<v<<endl;
             v=ceil(v/3.0);
             pq.push(v);
         }
