@@ -1,16 +1,12 @@
 class Solution {
 public:
-    vector<int> solve(vector<int>& nums){
-        vector<int> ans(nums.size(), 0);
+    void moveZeroes(vector<int>& nums) {
         int idx=0;
         for(auto i:nums)
             if(i!=0)
-                ans[idx++]=i;
-        return ans;
-    }
-    
-    void moveZeroes(vector<int>& nums) {
-        nums=solve(nums);
+                nums[idx++]=i;
+        while(idx<nums.size())
+            nums[idx++]=0;
     }
 };
 
