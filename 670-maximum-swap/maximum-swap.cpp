@@ -2,25 +2,17 @@ class Solution {
 public:
     int maximumSwap(int num) {
         string s=to_string(num);
-        bool swap=false;
-        for(int j=0;j<s.size();j++){
-            int idx=j;
-            char mx=s[j];
-            for(int i=j+1;i<s.size();i++){
-                if(s[j]<s[i] && mx<=s[i]){
-                    swap=true;
-                    idx=i;
-                    mx=s[i];
+        vector<int> li(10, -1);
+        for(int i=0;i<s.size();i++)
+            li[s[i]-'0']=i;
+
+        for(int i=0;i<s.size();i++)
+            for(int d=9;d>s[i]-'0';d--)
+                if(li[d]>i){
+                    swap(s[i], s[li[d]]);
+                    return stoi(s);
                 }
-            }
-            if(swap){
-                char ch=s[j];
-                s[j]=s[idx];
-                s[idx]=ch;
-                break;
-            }
-        }
-        return stoi(s);
+        return num;
     }
 };
 
