@@ -1,30 +1,26 @@
 class Solution {
 public:
     int maximumSwap(int num) {
-        string s=to_string(num), s1=s;
-        sort(s.begin(), s.end());
-        reverse(s.begin(), s.end());
-        if(s==s1) return num;
-
-        char n1, n2;
-        int i;
-        for(i=0;i<s.size();i++)
-            if(s[i]!=s1[i]){
-                n1=s[i];
-                n2=s1[i];
+        string s=to_string(num);
+        bool swap=false;
+        for(int j=0;j<s.size();j++){
+            int idx=j;
+            char mx=s[j];
+            for(int i=j+1;i<s.size();i++){
+                if(s[j]<s[i] && mx<=s[i]){
+                    swap=true;
+                    idx=i;
+                    mx=s[i];
+                }
+            }
+            if(swap){
+                char ch=s[j];
+                s[j]=s[idx];
+                s[idx]=ch;
                 break;
             }
-        for(int i=0;i<s.size();i++)
-            if(s1[i]==n2){
-                s1[i]=n1;
-                break;
-            }
-        for(int i=s.size()-1;i>=0;i--)
-            if(s1[i]==n1){
-                s1[i]=n2;
-                break;
-            }
-        return stoi(s1);
+        }
+        return stoi(s);
     }
 };
 
