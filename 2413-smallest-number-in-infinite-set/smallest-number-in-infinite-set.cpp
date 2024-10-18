@@ -1,16 +1,15 @@
 class SmallestInfiniteSet {
 public:
-    set<int> st;
-    int cur=1;    
+    unordered_set<int> st;
     int popSmallest() {
-        if(st.empty()) return cur++;
-        int mn=*st.begin();
-        st.erase(st.begin());
-        return mn;
+        int cur=1;
+        while(st.count(cur)) cur++;
+        st.insert(cur);
+        return cur;
     }
     
     void addBack(int num) {
-        if(num<cur) st.insert(num);
+        st.erase(num);
     }
 };
 
