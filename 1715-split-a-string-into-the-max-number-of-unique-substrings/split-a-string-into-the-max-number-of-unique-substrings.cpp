@@ -10,10 +10,11 @@ public:
 
         for(int i=1; idx+i<=s.size(); i++){
             string s1=s.substr(idx, i);
-            if(st.contains(s1)) continue;
-            st.insert(s1);
-            solve(s, idx+i, ans);
-            st.erase(s1);
+            if(!st.count(s1)){
+                st.insert(s1);
+                solve(s, idx+i, ans);
+                st.erase(s1);
+            }
         }
     }
 
