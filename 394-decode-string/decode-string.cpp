@@ -2,9 +2,7 @@ class Solution {
 public:
     string get(string s, int n){
         string ans="";
-        while(n--){
-            ans+=s;
-        }
+        while(n--) ans+=s;
         return ans;
     }
 
