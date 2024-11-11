@@ -21,17 +21,12 @@ public:
         for(int i=1;i<nums.size();i++){
             if(nums[i]>nums[i-1]){
                 auto it=lower_bound(prime.begin(), prime.end(), nums[i]-nums[i-1]-1);
-                cout<<*it<<endl;
                 if(it!=prime.begin() && nums[i]-*it<=nums[i-1])
                     it--;
-                cout<<*it<<endl;
                 if(nums[i]-*it>nums[i-1])
                     nums[i]-=*it;
             }
         }
-
-        for(auto i:nums) cout<<i<<" ";
-
         for(int i=1;i<nums.size();i++)
             if(nums[i]<=nums[i-1]) return false;
         return true;
