@@ -1,25 +1,19 @@
 class Solution {
 public:
-    long long countFairPairs(vector<int>& nums, int lower, int upper) {
-        ranges::sort(nums);
-        long long a1=0, a2=0;
+    long long count(vector<int>& nums, int sum){
+        long long c=0;
         int i=0, j=nums.size()-1;
         while(i<j){
-            while(i<j && nums[i]+nums[j]>lower-1){
+            while(i<j && nums[i]+nums[j]>sum)
                 j--;
-            }
-            a1+=j-i;
+            c+=j-i;
             i++;
         }
-        i=0, j=nums.size()-1;
-        while(i<j){
-            while(i<j && nums[i]+nums[j]>upper){
-                j--;
-            }
-            a2+=j-i;
-            i++;
-        }
-        return a2-a1;
+        return c;
+    }
+    long long countFairPairs(vector<int>& nums, int lower, int upper) {
+        ranges::sort(nums);
+        return count(nums, upper)-count(nums, lower-1);
     }
 };
 
