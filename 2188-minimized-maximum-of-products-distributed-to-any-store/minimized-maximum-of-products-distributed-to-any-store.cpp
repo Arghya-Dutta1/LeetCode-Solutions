@@ -1,9 +1,10 @@
 class Solution {
 public:
     int canDistribute(vector<int>& qty, int k){
-        return accumulate(qty.begin(), qty.end(), 0, [&](int t, int q){
-            return t+(q-1)/k+1;
-        });
+        int t=0;
+        for(auto q:qty)
+            t+=(q-1)/k+1;
+        return t;
     }
     int minimizedMaximum(int n, vector<int>& qty) {
         int l=1, r=ranges::max(qty);
