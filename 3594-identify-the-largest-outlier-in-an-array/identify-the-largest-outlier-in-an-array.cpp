@@ -1,11 +1,10 @@
 class Solution {
 public:
     int getLargestOutlier(vector<int>& nums) {
-        int s=0, n=nums.size();
-        for(auto i:nums) s+=i;
+        int n=nums.size(), ans=INT_MIN;
+        int s=accumulate(nums.begin(), nums.end(), 0);
         unordered_map<int, int> f;
         for (auto i:nums) f[i]++;
-        int ans=INT_MIN;
         for(auto i:nums){
             f[i]--;
             int rs=s-i;
