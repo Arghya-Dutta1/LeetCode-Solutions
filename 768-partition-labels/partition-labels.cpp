@@ -2,13 +2,13 @@ class Solution {
 public:
     vector<int> partitionLabels(string s) {
         vector<int> ans;
-        unordered_map<char, int> rm;
+        vector<int> rm(26);
         int n=s.length();
         for(int i=0;i<n;i++)
-            rm[s[i]]=i;
+            rm[s[i]-'a']=i;
         int l=0, r=0;
         for(int i=0;i<n;i++){
-            r=max(r, rm[s[i]]);
+            r=max(r, rm[s[i]-'a']);
             if(r==i){
                 ans.push_back(i-l+1);
                 l=i+1;
