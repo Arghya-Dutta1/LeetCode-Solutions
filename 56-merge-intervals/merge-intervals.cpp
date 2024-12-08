@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& nums) {
         vector<vector<int>> ans;
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int l=nums[0][0],r=nums[0][1];
         for(int i=1;i<nums.size();i++){
             if(nums[i][0]<=r){
