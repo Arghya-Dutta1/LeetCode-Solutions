@@ -2,26 +2,20 @@ class Solution {
 public:
     long long findScore(vector<int>& nums) {
         long long score=0;
-        int idx=0, n=nums.size();
-        priority_queue<int, vector<int>, greater<>> pq;
-        unordered_map<int, vector<int>> mp;
-        vector<bool> m(nums.size(), false);
-        for(auto i:nums){
-            pq.push(i);
-            mp[i].push_back(idx++);
-        }
-        while(!pq.empty()){
-            int top=pq.top();
-            idx=mp[top].front();
-            mp[top].erase(mp[top].begin());
-            if(!m[idx]){
-                m[idx]=true;
-                if(idx>0) m[idx-1]=true;
-                if(idx<n-1) m[idx+1]=true;
-                score+=nums[idx];
+        int n=nums.size();
+        set<pair<int, int>> st;
+        vector<bool> m(n, false);
+
+        for(int i=0;i<n;i++) st.insert({nums[i], i});
+
+        for(auto& [num, i]:st)
+            if(!m[i]){
+                if(i>0) m[i-1]=true;
+                if(i<n-1) m[i+1]=true;
+                m[i]=true;
+                score+=num;
             }
-            pq.pop();
-        }
+
         return score;
     }
 };
