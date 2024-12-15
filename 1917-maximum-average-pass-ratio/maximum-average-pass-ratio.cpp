@@ -15,8 +15,6 @@ public:
         while(extra--){
             auto cur=pq.top();
             pq.pop();
-
-            // double d=cur.first;
             int idx=cur.second;
 
             classes[idx][0]++;
@@ -28,7 +26,8 @@ public:
             pq.push({d, idx});
         }
 
-        for(int i=0;i<n;i++) ans+=(double)classes[i][0]/classes[i][1];
+        for(int i=0;i<n;i++)
+            ans+=(double)classes[i][0]/classes[i][1];
 
         return ans/n;
     }
