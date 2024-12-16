@@ -1,14 +1,11 @@
 class Solution {
 public:
-    int count(vector<vector<int>>& v, int i, int j, int m, int n){
-        if(i==m-1 && j==n-1) return 1;
-        if(i>=m || j>=n) return 0;
-        if(v[i][j]!=-1) return v[i][j];
-        return v[i][j]=count(v, i+1, j, m, n)+count(v, i, j+1, m, n);
-    }
     int uniquePaths(int m, int n) {
-        vector<vector<int>> v(m, vector<int>(n, -1));
-        return count(v, 0, 0, m, n);
+        vector<vector<int>> dp(m, vector<int>(n, 1));
+        for(int i=m-2;i>=0;i--)
+            for(int j=n-2;j>=0;j--)
+                dp[i][j]=dp[i+1][j]+dp[i][j+1];
+        return dp[0][0];
     }
 };
 
