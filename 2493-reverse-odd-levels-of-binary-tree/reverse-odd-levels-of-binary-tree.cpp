@@ -12,18 +12,18 @@
 class Solution {
 public:
     TreeNode* reverseOddLevels(TreeNode* root) {
-        dfs(root->left, root->right, true);
+        dfs(root->left, root->right, 1);
         return root;
     }
 
-    void dfs(TreeNode* left, TreeNode* right, bool s){
+    void dfs(TreeNode* left, TreeNode* right, int lvl){
         if(!left) return;
 
-        if(s)
+        if(lvl&1)
             swap(left->val, right->val);
 
-        dfs(left->left, right->right, !s);
-        dfs(left->right, right->left, !s);
+        dfs(left->left, right->right, lvl+1);
+        dfs(left->right, right->left, lvl+1);
     }
 };
 
