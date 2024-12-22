@@ -10,14 +10,14 @@ public:
             int a = min(q[i][0], q[i][1]), b = max(q[i][0], q[i][1]);
             iq.push_back({i, a, b});
         }
-        ranges::sort(iq, [](const Q& x, const Q& y) { return x.b > y.b; });
+        ranges::sort(iq, [](auto& x, auto& y) { return x.b > y.b; });
         return iq;
     }
 
     vector<int> leftmostBuildingQueries(vector<int>& h, vector<vector<int>>& q) {
         vector<int> ans(q.size(), -1), st;
         int hi = h.size() - 1;
-        for (const auto& [qi, a, b] : getIndexedQueries(q)) {
+        for (auto& [qi, a, b] : getIndexedQueries(q)) {
             if (a == b || h[a] < h[b]) {
                 ans[qi] = b;
             } else {
