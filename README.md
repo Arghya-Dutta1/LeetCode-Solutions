@@ -5,7 +5,7 @@ Welcome to my LeetCode solutions repository! This repository contains my solutio
 Check out my [LeetCode Profile](https://leetcode.com/u/arghyadutta2002/) to see my progress and other problems I've solved.
 
 ## LeetCode Profile Stats
-<p> <img src="https://leetcard.jacoblin.cool/arghyadutta2002?ext=contest&theme=unicorn" alt="arghya-dutta1"> </p>
+<p> <img src="https://leetcard.jacoblin.cool/arghyadutta2002?ext=contest" alt="arghya-dutta1"> </p>
 
 ## Contributing
 If you have suggestions or improvements, feel free to open an issue or submit a pull request. Let's learn together!
