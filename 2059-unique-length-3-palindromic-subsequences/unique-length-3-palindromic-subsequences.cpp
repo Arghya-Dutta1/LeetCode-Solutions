@@ -9,12 +9,11 @@ public:
             int mid=s[i]-'a';
             right[mid]--;
             if(i>0){
-                for(int j=0; j<26; j++){
+                for(int j=0; j<26; j++)
                     if(left[j] && right[j] && seen[mid][j]==0){
                         seen[mid][j]=1;
                         ans++;
                     }
-                }
             }
             left[mid]++;
         }
