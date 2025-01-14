@@ -29,7 +29,6 @@ public:
         vector<string> s=split(path, '/');
         stack<string> st;
         for(auto i:s){
-            cout<<i<<endl;
             if(i=="."){
                 continue;
             }
@@ -55,7 +54,6 @@ public:
                 ans.erase(i+1, 1);
 
         if(ans.size()>1 &&ans[ans.size()-1]=='/') return ans.substr(0, ans.size()-1);
-        // if(ans.size()==0) return "/";
         return ans;
     }
 };
