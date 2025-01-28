@@ -1,11 +1,16 @@
 class Solution {
 public:
-    int dfs(vector<vector<int>>& grid, int i, int j){
+    void dfs(vector<vector<int>>& grid, int i, int j, int& s){
         if(i<0 || i==grid.size() || j<0 || j==grid[0].size() || grid[i][j]==0)
-            return 0;
-        int fish=grid[i][j];
+            return;
+
+        s+=grid[i][j];
         grid[i][j]=0;
-        return fish + dfs(grid, i+1, j) + dfs(grid, i-1, j) + dfs(grid, i, j+1) + dfs(grid, i, j-1);
+
+        dfs(grid, i+1, j, s);
+        dfs(grid, i-1, j, s);
+        dfs(grid, i, j+1, s);
+        dfs(grid, i, j-1, s);
     }
 
     int findMaxFish(vector<vector<int>>& grid) {
@@ -13,7 +18,8 @@ public:
         for(int i=0;i<m;i++)
             for(int j=0;j<n;j++)
                 if(grid[i][j]!=0){
-                    int s=dfs(grid, i, j);
+                    int s=0;
+                    dfs(grid, i, j, s);
                     ans=max(ans, s);
                 }
         return ans;
