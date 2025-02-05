@@ -2,12 +2,9 @@ class Solution {
 public:
     int dfs(vector<vector<int>>& g, int u, int prev){
         int ans=0;
-
         for(auto v:g[u]){
-            if(abs(v)==prev)
-                continue;
-            if(v>0)
-                ans++;
+            if(abs(v)==prev) continue;
+            if(v>0) ans++;
             ans+=dfs(g, abs(v), u);
         }
         return ans;
