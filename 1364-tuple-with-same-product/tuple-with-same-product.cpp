@@ -10,7 +10,7 @@ public:
         
         for(auto [_, i]:mp)
             ans+=i*(i-1)/2;
-        return ans*8;
+        return ans<<3;
     }
 };
 
