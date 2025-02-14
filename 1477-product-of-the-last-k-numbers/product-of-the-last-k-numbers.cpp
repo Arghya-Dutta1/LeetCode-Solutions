@@ -1,17 +1,17 @@
 class ProductOfNumbers {
 public:
+    ProductOfNumbers():nums{1}{}
     vector<int> nums;
 
     void add(int num) {
-        nums.push_back(num);
+        if(num==0)
+            nums={1};
+        else
+            nums.push_back(nums.back()*num);
     }
     
     int getProduct(int k) {
-        int p=1, i=nums.size()-1;
-        while(k--){
-            p*=nums[i--];
-        }
-        return p;
+        return k>=nums.size()?0:nums.back()/nums[nums.size()-k-1];
     }
 };
 
