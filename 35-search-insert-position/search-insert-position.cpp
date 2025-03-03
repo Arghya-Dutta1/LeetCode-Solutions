@@ -1,10 +1,14 @@
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for(int i=0;i<nums.size();i++)
-            mp[nums[i]]=i;
         auto it=lower_bound(nums.begin(), nums.end(), target);
-        return it!=nums.end()?mp[*it]:nums.size();
+        return distance(nums.begin(), it);
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
