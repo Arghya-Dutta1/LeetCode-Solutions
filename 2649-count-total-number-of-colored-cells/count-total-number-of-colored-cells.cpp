@@ -1,9 +1,7 @@
 class Solution {
 public:
     long long coloredCells(int n) {
-        n--;
-        long long ans=1+(1LL*2*n*(n+1));
-        return ans;
+        return 1+(1LL*2*(n-1)*(n));
     }
 };
 
