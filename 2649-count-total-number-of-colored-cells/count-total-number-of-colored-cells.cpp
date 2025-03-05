@@ -1,12 +1,8 @@
 class Solution {
 public:
     long long coloredCells(int n) {
-        long long ans=1;
-        int d=0;
-        while(n--){
-            ans+=d;
-            d+=4;
-        }
+        n--;
+        long long ans=1+(1LL*2*n*(n+1));
         return ans;
     }
 };
