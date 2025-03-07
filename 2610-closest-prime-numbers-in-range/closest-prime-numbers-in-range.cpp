@@ -19,15 +19,8 @@ public:
         i--;
         for(;i>=max(left,2);i--)
             if(p[i]){
-                cout<<i<<" d= "<<pre-i<<endl;
                 if(d>=pre-i){
-                    cout<<pre<<" "<<i<<endl;
-                    if(!ans.empty()){
-                        ans.pop_back();
-                        ans.pop_back();
-                    }
-                    ans.push_back(i);
-                    ans.push_back(pre);
+                    ans={i, pre};
                     d=pre-i;
                 }
                 pre=i;
