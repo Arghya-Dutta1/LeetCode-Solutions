@@ -5,7 +5,7 @@ public:
         vector<int> mp(3,-1);
         for(int i=0;i<s.size();i++){
             mp[s[i]-'a']=i;
-            ans+=1+ranges::min(mp);
+            ans+=1+min({mp[0], mp[1], mp[2]});
         }
         return ans;
     }
