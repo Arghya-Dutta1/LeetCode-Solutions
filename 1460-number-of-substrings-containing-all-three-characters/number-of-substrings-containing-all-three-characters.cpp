@@ -1,14 +1,11 @@
 class Solution {
 public:
-    int minVal(vector<int>& mp){
-        return ranges::min(mp);
-    }
     int numberOfSubstrings(string s) {
         int ans=0;
         vector<int> mp(3,-1);
         for(int i=0;i<s.size();i++){
             mp[s[i]-'a']=i;
-            ans+=1+minVal(mp);
+            ans+=1+ranges::min(mp);
         }
         return ans;
     }
