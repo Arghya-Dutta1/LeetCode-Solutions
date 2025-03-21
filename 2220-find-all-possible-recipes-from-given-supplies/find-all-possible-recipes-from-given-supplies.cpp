@@ -9,20 +9,16 @@ public:
         vector<bool> cooked(n, false);
 
         int count = n;
-        while(count--) {
-
+        while(count--)
             for(int j = 0; j < n; j++) {
-                if(cooked[j]) {
-                    continue;
-                }
+                if(cooked[j]) continue;
 
                 bool banpaega = true;
-                for(int k = 0; k < ingredients[j].size(); k++) {
+                for(int k = 0; k < ingredients[j].size(); k++)
                     if(!st.count(ingredients[j][k])) {
                         banpaega = false;
                         break;
                     }
-                }
 
                 if(banpaega) {
                     st.insert(recipes[j]);
@@ -30,7 +26,13 @@ public:
                     cooked[j] = true;
                 }
             }
-        }
         return result;
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
