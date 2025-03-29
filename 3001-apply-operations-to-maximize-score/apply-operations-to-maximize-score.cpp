@@ -61,7 +61,7 @@ public:
         }
         if(n > 1)
             ans.insert(n);
-        return ans.size()+1;
+        return ans.size();
     }
 };
 
