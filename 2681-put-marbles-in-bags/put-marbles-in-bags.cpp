@@ -1,18 +1,13 @@
 class Solution {
 public:
     long long putMarbles(vector<int>& wt, int k) {
-        long long s=0;
         vector<int> ps;
         for(int i=0;i<wt.size()-1;i++)
             ps.push_back(wt[i]+wt[i+1]);
         ranges::sort(ps);
-        k--;
-        for(int i=0;i<k;i++)
-            s-=ps[i];    
-        int idx=ps.size()-1;
-        while(k--)
-            s+=ps[idx--];    
-        return s;
+        long long mx=accumulate(ps.end()-(k-1),ps.end(),0LL);
+        long long mn=accumulate(ps.begin(), ps.begin()+(k-1),0LL);    
+        return mx-mn;
     }
 };
 
