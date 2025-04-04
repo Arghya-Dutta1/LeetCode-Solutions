@@ -47,7 +47,7 @@ public:
         }
         vector<TreeNode*> b=ans.back();
         if(b.size()==1) return b[0];
-        return lowestCommonAncestor(root, b[0], b.back());
+        return lowestCommonAncestor(root, b.front(), b.back());
     }
 };
 
