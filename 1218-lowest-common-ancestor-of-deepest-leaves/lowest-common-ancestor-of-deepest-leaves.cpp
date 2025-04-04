@@ -26,9 +26,8 @@ public:
             return root;  
     }
 
-    TreeNode* lcaDeepestLeaves(TreeNode* root) {
+    vector<TreeNode*> findDeep(TreeNode* root){
         vector<vector<TreeNode*>> ans;
-        if(!root) return NULL;
         queue<TreeNode*> q;
         q.push(root);
         while(!q.empty()){
@@ -45,7 +44,12 @@ public:
             }
             ans.push_back(lvl);
         }
-        vector<TreeNode*> b=ans.back();
+        return ans.back();
+    }
+
+    TreeNode* lcaDeepestLeaves(TreeNode* root) {
+        if(!root) return NULL;
+        vector<TreeNode*> b=findDeep(root);
         if(b.size()==1) return b[0];
         return lowestCommonAncestor(root, b.front(), b.back());
     }
