@@ -4,11 +4,11 @@ public:
         unordered_set<int> st;
         for(int i=idx;i<nums.size();i++)
             st.insert(nums[i]);
-        return st.size()!=(nums.size()-idx);
+        return st.size()==(nums.size()-idx);
     }
     int minimumOperations(vector<int>& nums) {
         int idx=0, op=0;
-        while(check(nums, idx)){
+        while(!check(nums, idx)){
             idx+=3;
             if(idx>=nums.size())
                 idx=nums.size();
