@@ -4,9 +4,9 @@ public:
         int ans=0;
         for(auto i:nums){
             string s=to_string(i);
-            if(s.size()%2==0) ans++;
+            if(s.size()%2!=0) ans++;
         }
-        return ans;
+        return nums.size()-ans;
     }
 };
 
