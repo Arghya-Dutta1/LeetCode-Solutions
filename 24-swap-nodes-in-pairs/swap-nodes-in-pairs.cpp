@@ -11,25 +11,25 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        vector<int> l;
-        ListNode* h=head;
-        while(head){
-            int i1=head->val;
-            head=head->next;
-            if(head){
-                int i2=head->val;
-                head=head->next;
-                l.push_back(i2);
-            }
-            l.push_back(i1);
+        int length=0;
+        ListNode* temp=head;
+        while(temp){
+            length++;
+            temp=temp->next;
         }
-        ListNode* t=h;
-        int i=0;
-        while(t){
-            t->val=l[i++];
-            t=t->next;
+        ListNode dummy(0, head);
+        ListNode* prev = &dummy;
+        ListNode* curr = head;
+
+        for (int i = 0; i < length / 2; ++i) {
+            ListNode* next = curr->next;
+            curr->next = next->next;
+            next->next = prev->next;
+            prev->next = next;
+            prev = curr;
+            curr = curr->next;
         }
-        return h;
+        return dummy.next;
     }
 };
 
