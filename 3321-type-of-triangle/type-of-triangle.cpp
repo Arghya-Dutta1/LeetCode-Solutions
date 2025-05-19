@@ -7,8 +7,8 @@ public:
             case 1: return "equilateral";
             case 2: return "isosceles";
             case 3: return "scalene";
+            default: return "none";
         }
-        return "none";
     }
 };
 
