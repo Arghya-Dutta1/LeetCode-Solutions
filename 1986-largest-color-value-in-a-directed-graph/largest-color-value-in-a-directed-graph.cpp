@@ -24,8 +24,7 @@ public:
                 if(--in[i]==0) q.push(i);
             }
         }
-        if(p!=n) return -1;
-        return ans;
+        return p==n?ans:-1;
     }
 };
 
