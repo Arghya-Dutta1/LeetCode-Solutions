@@ -16,8 +16,6 @@ public:
             ans[i] = t + cnt1[c1[i]];
         return ans;
     }
-
-private:
     vector<vector<int>> build(const vector<vector<int>>& edges) {
         int n = edges.size() + 1;
         vector<vector<int>> g(n);
@@ -27,7 +25,6 @@ private:
         }
         return g;
     }
-
     void dfs(const vector<vector<int>>& g, int a, int fa, vector<int>& c, int d, vector<int>& cnt) {
         c[a] = d;
         cnt[d]++;
