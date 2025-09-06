@@ -14,6 +14,13 @@ public:
             int l = powerOfFour, r = min(n, powerOfFour * 4 - 1);
             res += static_cast<long long>(r - l + 1) * ++ops;
         }
-        return res -1;
+        return res;
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
