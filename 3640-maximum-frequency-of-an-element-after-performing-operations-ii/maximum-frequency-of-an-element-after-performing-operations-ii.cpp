@@ -13,14 +13,19 @@ public:
             candidates.insert(num - k);
             candidates.insert(num + k + 1);
         }
-
         for (const int num : candidates) {
             adjustable += line.contains(num) ? line[num] : 0;
             int countNum = count.contains(num) ? count[num] : 0;
             int adjusted = adjustable - countNum;
             ans = max(ans, countNum + min(numOperations, adjusted));
         }
-
         return ans;
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
