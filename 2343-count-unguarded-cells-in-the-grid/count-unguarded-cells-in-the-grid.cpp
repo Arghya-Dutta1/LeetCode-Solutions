@@ -2,11 +2,7 @@ class Solution {
  public:
   int countUnguarded(int m, int n, vector<vector<int>>& guards, vector<vector<int>>& walls) {
     int ans = 0;
-    vector<vector<char>> grid(m, vector<char>(n));
-    vector<vector<char>> left(m, vector<char>(n));
-    vector<vector<char>> right(m, vector<char>(n));
-    vector<vector<char>> up(m, vector<char>(n));
-    vector<vector<char>> down(m, vector<char>(n));
+    vector<vector<char>> grid(m, vector<char>(n)), left(m, vector<char>(n)), right(m, vector<char>(n)), up(m, vector<char>(n)), down(m, vector<char>(n));
 
     for (const vector<int>& guard : guards)
       grid[guard[0]][guard[1]] = 'G';
