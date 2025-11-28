@@ -2,7 +2,6 @@ class Solution {
 public:
     long dfs(vector<vector<int>>& g, int u, int pre, vector<int>& val, int k, int& ans){
         long tsum=val[u];
-
         for(auto v:g[u])
             if(v!=pre)
                 tsum+=dfs(g, v, u, val, k, ans);
@@ -18,7 +17,6 @@ public:
             g[i[0]].push_back(i[1]);
             g[i[1]].push_back(i[0]);
         }
-
         dfs(g, 0, -1, values, k, ans);
         return ans;
     }
