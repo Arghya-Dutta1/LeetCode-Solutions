@@ -9,3 +9,10 @@ public:
         return count_if(directions.begin() + l, directions.begin() + r + 1, [](char c) { return c != 'S'; });
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
