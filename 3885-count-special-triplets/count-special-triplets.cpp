@@ -2,10 +2,8 @@ class Solution {
 public:
     int specialTriplets(vector<int>& nums) {
         unordered_map<int, int> leftCount, rightCount;
-        for (int num : nums) {
+        for (int num : nums)
             rightCount[num]++;
-        }
-
         long long result = 0;
         const int MOD = 1e9 + 7;
         for (int middleValue : nums) {
@@ -17,3 +15,10 @@ public:
         return result;
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
