@@ -13,3 +13,10 @@ public:
         return numSeats > 1 && numSeats % 2 == 0 ? ans : 0;
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
