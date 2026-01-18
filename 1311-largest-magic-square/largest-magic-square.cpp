@@ -1,23 +1,16 @@
 class Solution {
 public:
     int largestMagicSquare(vector<vector<int>>& grid) {
-        int n = grid.size();
-        int m = grid[0].size();
-        
-        vector<vector<long long>> row_prefix(n, vector<long long>(m + 1, 0));
-        vector<vector<long long>> col_prefix(n + 1, vector<long long>(m, 0));
+        int n = grid.size(), m = grid[0].size();
+        vector<vector<long long>> row_prefix(n, vector<long long>(m + 1, 0)), col_prefix(n + 1, vector<long long>(m, 0));
 
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < m; ++j) {
+        for (int i = 0; i < n; ++i) 
+            for (int j = 0; j < m; ++j) 
                 row_prefix[i][j + 1] = row_prefix[i][j] + grid[i][j];
-            }
-        }
 
-        for (int j = 0; j < m; ++j) {
-            for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) 
+            for (int i = 0; i < n; ++i) 
                 col_prefix[i + 1][j] = col_prefix[i][j] + grid[i][j];
-            }
-        }
 
         for (int k = min(n, m); k > 1; --k) {
             for (int r = 0; r <= n - k; ++r) {
@@ -50,9 +43,8 @@ public:
                         d2 += grid[r + i][c + k - 1 - i];
                     }
 
-                    if (d1 == target && d2 == target) {
+                    if (d1 == target && d2 == target)
                         return k;
-                    }
                 }
             }
         }
