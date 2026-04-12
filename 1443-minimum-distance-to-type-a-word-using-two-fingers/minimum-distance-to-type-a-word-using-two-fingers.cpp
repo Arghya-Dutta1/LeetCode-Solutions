@@ -8,9 +8,7 @@ public:
             f[0][j][word[0] - 'A'] = 0;
         }
         for (int i = 1; i < n; ++i) {
-            int a = word[i - 1] - 'A';
-            int b = word[i] - 'A';
-            int d = dist(a, b);
+            int a = word[i - 1] - 'A', b = word[i] - 'A', d = dist(a, b);
             for (int j = 0; j < 26; ++j) {
                 f[i][b][j] = min(f[i][b][j], f[i - 1][a][j] + d);
                 f[i][j][b] = min(f[i][j][b], f[i - 1][j][a] + d);
@@ -32,8 +30,14 @@ public:
     }
 
     int dist(int a, int b) {
-        int x1 = a / 6, y1 = a % 6;
-        int x2 = b / 6, y2 = b % 6;
+        int x1 = a / 6, y1 = a % 6, x2 = b / 6, y2 = b % 6;
         return abs(x1 - x2) + abs(y1 - y2);
     }
 };
+
+static const int __ = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    return 0;
+}();
